@@ -56,7 +56,7 @@ export default function ISSTracker() {
     mutate,
   } = useSWR(URL, fetcher, { refreshInterval: 5000 });
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading || !coords) return <p>Loading...</p>;
   if (error) return <p>Failed to load</p>;
 
   return (
